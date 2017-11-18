@@ -35,7 +35,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0xa33bac27e80b6dff8ffa25f3873639ffe296e2b846f39f70558eabb124cd69b8");
+uint256 hashGenesisBlock("0xca85ed061aecffcccfadcef29ed0246b8fa0b37dbee5ed0d703fe7d51b36ff4c");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Scamcoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -1093,7 +1093,7 @@ if(nHeight == 1)
     if (nHeight != 0)
 	{
         for (int ScaM = 0; ScaM < nHeight /50; ScaM++)
-            	nSubsidy = (nSubsidy/100)*95;
+            	nSubsidy = (nSubsidy/100)*97;
 	}
     return nSubsidy + nFees;
 }
@@ -2749,7 +2749,7 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0xc1;
         pchMessageStart[2] = 0xa4;
         pchMessageStart[3] = 0xae;
-        hashGenesisBlock = uint256("0xa33bac27e80b6dff8ffa25f3873639ffe296e2b846f39f70558eabb124cd69b8");
+        hashGenesisBlock = uint256("0xca85ed061aecffcccfadcef29ed0246b8fa0b37dbee5ed0d703fe7d51b36ff4c");
     }
 
     //
@@ -2782,7 +2782,7 @@ bool InitBlockIndex() {
         //   vMerkleTree: 97ddfbbae6
 
         // Genesis block
-        const char* pszTimestamp = "It`s a SCAM! Fly, you fools";
+        const char* pszTimestamp = "It`s a SCAM! Fly, you fools!";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2794,14 +2794,14 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1507860137;
+        block.nTime    = 1510960291;
         block.nBits    = 0x1e0ffff1;
-        block.nNonce   = 125339;
+        block.nNonce   = 5767093;
 
         if (fTestNet)
         {
-            block.nTime    = 1507860137;
-            block.nNonce   = 125339;
+            block.nTime    = 1510960291;
+            block.nNonce   = 5767093;
         }
 
         //// debug print
@@ -2809,7 +2809,7 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x51528ac7e39bba38cc6936109c375deb7a898e696216cc2c5642b6c1f784bdd7"));
+        assert(block.hashMerkleRoot == uint256("0x5707bd8cc79ed00a6629c7dec97f646f2dd3b83fc025192095810a0e7ca9a8ad"));
 		if (true && block.GetHash() != hashGenesisBlock)
          {
              printf("Searching for genesis block...\n");
